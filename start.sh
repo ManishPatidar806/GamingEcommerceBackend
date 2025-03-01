@@ -1,5 +1,7 @@
 #!/bin/bash
 
+
+nohup java -jar all-jars/API-Gateway-0.0.1-SNAPSHOT.jar --server.port=8080 > apigateway/Auth.log 2>&1 &
 # Run the JAR files in the background, each on a different port
 nohup java -jar all-jars/AuthenticationService-0.0.1-SNAPSHOT.jar --server.port=8081 > logs/Auth.log 2>&1 &
 nohup java -jar all-jars/CartHistoryService-0.0.1-SNAPSHOT.jar --server.port=8086 > logs/CartHistory.log 2>&1 &
