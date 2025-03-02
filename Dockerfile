@@ -15,7 +15,7 @@ COPY start.sh /app/
 RUN chmod +x /app/start.sh
 
 # Expose ports for all microservices
-EXPOSE 8080 8081 8082 8083 8084 8085 8086
+EXPOSE 8080 8081 8082 8083 8084 8085 8086 8761
 
 # Run the startup script
 CMD ["/bin/bash", "/app/start.sh"]

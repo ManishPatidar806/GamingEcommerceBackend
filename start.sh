@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+nohup java -jar all-jars/ServiceRegistry-0.0.1-SNAPSHOT.jar --server.port=8761 &
 nohup java -jar all-jars/API-Gateway-0.0.1-SNAPSHOT.jar --server.port=8080  &
 # Run the JAR files in the background, each on a different port
 nohup java -jar all-jars/AuthenticationService-0.0.1-SNAPSHOT.jar --server.port=8081  &
