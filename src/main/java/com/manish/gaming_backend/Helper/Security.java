@@ -14,10 +14,9 @@ import java.util.Date;
 @Component
 public class Security {
    
-@Value("${Secret.key.string}")
-private static String secretKey;
 
-    private static final String SECRET_KEY_STRING =secretKey;
+
+    private static final String SECRET_KEY_STRING ="manishpatidarmanishpatidarimaidhfaohfaishdfahsdfhsdfhsdjsdfhkjasdhflkjshfdlakjshdflkjhdsalkfjhdlskjfhaldskjfhl";
     private final Key SECRET_KEY = Keys.hmacShaKeyFor(SECRET_KEY_STRING.getBytes());
 
 
