@@ -17,6 +17,9 @@ public class PaymentServiceImpl implements PaymentService{
     @Value("${Stripe.secret.key}")
     private String secreatKey;
 
+    @Value("{Frontend.URl}")
+    private String frontendUrl;
+
     public Session payment(PaymentRequest paymentRequest) throws StripeException {
         Stripe.apiKey = secreatKey;
 
@@ -39,8 +42,8 @@ public class PaymentServiceImpl implements PaymentService{
         }
         SessionCreateParams params  =SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
-                .setSuccessUrl("http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}")
-                    .setCancelUrl("http://localhost:5173/")
+                .setSuccessUrl(frontendUrl+"success?session_id={CHECKOUT_SESSION_ID}")
+                    .setCancelUrl(frontendUrl+"failed")
                 .addAllLineItem(lineItems)
                 .build();
 
