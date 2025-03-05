@@ -17,8 +17,7 @@ public class PaymentServiceImpl implements PaymentService{
     @Value("${Stripe.secret.key}")
     private String secreatKey;
 
-    @Value("{Frontend.URl}")
-    private String frontendUrl;
+
 
     public Session payment(PaymentRequest paymentRequest) throws StripeException {
         Stripe.apiKey = secreatKey;
@@ -29,7 +28,7 @@ public class PaymentServiceImpl implements PaymentService{
                     .setName(product.getName() + " (ID: " + product.getProductId().toString() + ")").build();
 
             SessionCreateParams.LineItem.PriceData priceData = SessionCreateParams.LineItem.PriceData.builder()
-                    .setCurrency("USD")
+                    .setCurrency("INR")
                     .setUnitAmount(product.getAmount() * 100)   //For 1rs =100cint
                     .setProductData(productData)
                     .build();
@@ -42,8 +41,8 @@ public class PaymentServiceImpl implements PaymentService{
         }
         SessionCreateParams params  =SessionCreateParams.builder()
                 .setMode(SessionCreateParams.Mode.PAYMENT)
-                .setSuccessUrl(frontendUrl+"success?session_id={CHECKOUT_SESSION_ID}")
-                    .setCancelUrl(frontendUrl+"failed")
+                .setSuccessUrl("https://gameingzone.vercel.app/success?session_id={CHECKOUT_SESSION_ID}")
+                    .setCancelUrl("https://gameingzone.vercel.app/failed")
                 .addAllLineItem(lineItems)
                 .build();
 
