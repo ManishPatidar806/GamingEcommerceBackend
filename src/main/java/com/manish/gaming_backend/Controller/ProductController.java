@@ -60,17 +60,24 @@ public class ProductController {
             }
 
 
-
+            System.out.println(createProduct);
             // Validate all fields are properly filled
-            if (createProduct.getName().isEmpty() || createProduct.getDescription().isEmpty() ||
-                    createProduct.getCompany().isEmpty()||
-                    createProduct.getTypeOfProduct().isEmpty() || createProduct.getPrice() < 0 ||
-                    createProduct.getLargePrice()>createProduct.getPrice()||
-                    createProduct.getMainImage() == null || createProduct.getImage1() == null ||
-                    createProduct.getImage2() == null || createProduct.getImage3() == null ||
-                    createProduct.getImage4() == null || createProduct.getImage5() == null ||
-                    createProduct.getProcesser().isEmpty() || createProduct.getGraphicCard().isEmpty() ||
-                    createProduct.getRam().isEmpty() || createProduct.getMemory().isEmpty()) {
+            if (createProduct.getName() == null || createProduct.getName().isEmpty() ||
+                    createProduct.getDescription() == null || createProduct.getDescription().isEmpty() ||
+                    createProduct.getCompany() == null || createProduct.getCompany().isEmpty() ||
+                    createProduct.getTypeOfProduct() == null || createProduct.getTypeOfProduct().isEmpty() ||
+                    createProduct.getPrice() < 0 ||
+                    createProduct.getLargePrice() < createProduct.getPrice() ||
+                    createProduct.getMainImage() == null ||
+                    createProduct.getImage1() == null ||
+                    createProduct.getImage2() == null ||
+                    createProduct.getImage3() == null ||
+                    createProduct.getImage4() == null ||
+                    createProduct.getImage5() == null ||
+                    createProduct.getProcesser() == null || createProduct.getProcesser().isEmpty() ||
+                    createProduct.getGraphicCard() == null || createProduct.getGraphicCard().isEmpty() ||
+                    createProduct.getRam() == null || createProduct.getRam().isEmpty() ||
+                    createProduct.getMemory() == null || createProduct.getMemory().isEmpty()) {
                 throw new Exception("Fill All fields properly");
             }
 

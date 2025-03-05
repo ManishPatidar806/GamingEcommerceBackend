@@ -188,7 +188,7 @@ public class Product {
 
     @Column(nullable = false , unique = true)
     private String name;
-    @Column(nullable = false,length = 800)
+    @Column(nullable = false,length = 10000)
     private String description;
     @Column(nullable = false)
     private double price;
